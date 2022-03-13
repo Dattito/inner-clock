@@ -38,14 +38,15 @@
 				id="middle"
 				class="h-0 w-0 rounded-full bg-black relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-black"
 			>
-				<h1 class="absolute bottom-44 left-1/2 -translate-x-1/2 whitespace-nowrap">
+				<h1 class="absolute bottom-64 text-2xl font-semibold whitespace-nowrap left-1/2 -translate-x-1/2">Inner Clock</h1>
+				<h2 class="absolute bottom-44 left-1/2 -translate-x-1/2 whitespace-nowrap">
 					Tag: {selectedDay.toLocaleDateString('de-DE')} ({(slider + 1).toFixed(0)}. Tag im Jahr) =>
 					Tageslänge: {lengthOfDay(slider + 1).toFixed(2)}h; Sonnenaufgang: {getSunrise(
 						23.45,
 						0,
 						selectedDay
 					).toLocaleTimeString()} Uhr
-				</h1>
+				</h2>
 				<div class="absolute bottom-52 left-1/2 -translate-x-1/2 flex space-x-2">
 					<input type="range" bind:value={slider} min="0" max="364" />
 					<input
