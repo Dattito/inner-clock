@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { sunriseLocaltime } from './lib/sunrise';
 	import { getSunrise } from 'sunrise-sunset-js';
 
 	import { getDaysAfterFirstJanuary } from './lib/utils'
@@ -12,14 +11,8 @@
 
 	$: selectedDay = addDays(firstJanuary, slider);
 
-	const maxAlphaEarth = 23.45;
-	const alphaSpeyer = 49.3173; // postive for northern hemisphere, negative for southern hemisphere
-	const maxAlphaPosition = maxAlphaEarth + alphaSpeyer;
-
 	const lengthOfDay = (day: number) =>
 		Math.sin((2 * Math.PI * day) / 365 - Math.PI / 2 - (2 * Math.PI * 355) / 365) * 4 + 12;
-
-	$: localSunrise = sunriseLocaltime(selectedDay, (alphaSpeyer / 180) * Math.PI);
 
 	$: curve = (x: number) => {
 		const a = 0.051 * ((lengthOfDay(slider + 1) - 8) / 8);
