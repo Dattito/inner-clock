@@ -1,0 +1,30 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-18.04
+        node-version:
+          - 16.x
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: setup node ${{matrix.node-version}}
+        uses: actions/setup-node@v1.4.1
+        with:
+          node-version: ${{matrix.node-version}}
+      - name: install packages
+        run: yarn install
+      - name: check linting
+        run: yarn lint
+      - name: build
+        run: yarn build
+      - name: deploy on github pages
+        run: yarn deploy
