@@ -34,9 +34,9 @@
 				<h1 class="absolute bottom-64 text-2xl font-semibold whitespace-nowrap left-1/2 -translate-x-1/2">Inner Clock</h1>
 				<h2 class="absolute bottom-44 left-1/2 -translate-x-1/2 whitespace-nowrap">
 					Tag: {selectedDay.toLocaleDateString('de-DE')} ({(slider + 1).toFixed(0)}. Tag im Jahr) =>
-					Tageslänge: {lengthOfDay(slider + 1).toFixed(2)}h; Sonnenaufgang: {getSunrise(
-						23.45,
-						0,
+					Tageslänge: {lengthOfDay(slider + 1).toFixed(2)}h; Sonnenaufgang (Frankfurt): {getSunrise(
+						50.1109,
+						8.6821,
 						selectedDay
 					).toLocaleTimeString()} Uhr
 				</h2>
